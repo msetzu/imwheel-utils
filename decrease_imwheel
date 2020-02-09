@@ -1,0 +1,7 @@
+#!/bin/bash
+old=`egrep "None.+Up" < .imwheelrc | awk '{print $4}'`
+((new=$old-1))
+sed -i s/"None,      Up,   Button4, $old"/"None,      Up,   Button4, $new"/ ~/.imwheelrc
+sed -i s/"None,      Down, Button5, $old"/"None,      Down, Button5, $new"/ ~/.imwheelrc
+#cat ~/.imwheelrc
+imwheel -kill
